@@ -9,7 +9,9 @@ const io = new Server(server);
 // app.get(
 //   "/",
 io.on("connection", (socket) => {
+  console.log("Connected");
   socket.on("chat message", ({ user, msg }) => {
+    console.log("message recieved");
     io.emit("chat message", { user, msg });
   });
 });
