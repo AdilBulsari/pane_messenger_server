@@ -9,8 +9,7 @@ app.use(cors);
 
 const { Server } = require("socket.io");
 const io = new Server(server);
-// app.get(
-//   "/",
+
 io.on("connection", (socket) => {
   console.log("Connected");
   socket.on("chat message", ({ user, msg }) => {
@@ -18,7 +17,6 @@ io.on("connection", (socket) => {
     io.emit("chat message", { user, msg });
   });
 });
-// );
 
 server.listen(PORT, () => {
   console.log("listening on *:" + PORT);
